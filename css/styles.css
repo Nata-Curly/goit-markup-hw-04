@@ -8,7 +8,9 @@
     --color-button-border: #EEE;
     --color-background-primery: #F5F5F5;
     --color-background-secondary: #F5F4FA;
+    --color-background-tertiary: #C4C4C4;
     --color-section-background: #2F303A;
+    --color-icon-primary: #AFB1B8;
     --project-card-gap: 30px;
 }
 * {
@@ -27,7 +29,7 @@ p {
 body {
     font-family: "Roboto", sans-serif;
     color: var(--color-primery);
-    background-color: var(--color-text-action);
+    background-color: var(--color-text-action 0.4);
 }
 .visually-hidden {
     position: absolute;
@@ -100,7 +102,7 @@ img {
 }
 .header-contacts {
     display: flex;
-    gap: 40px;
+    gap: 30px;
 }
 .link-logo {
     font-family: 'Raleway';
@@ -122,19 +124,30 @@ img {
 }
 .mailto-header,
 .tel-header {
+    display: flex;
+    align-items: center;
     color: var(--color-secondary);
+    gap: 10px;
 }
-.mailto-header:hover,
-.mailto-header:focus {
+.mailto-header:hover, .mailto-icon:hover,
+.mailto-header:focus, .mailto-icon:focus {
     color: var(--color-action);
+    fill: var(--color-action);
+    }
+.mailto-icon, .tel-icon {
+    fill: currentColor;
 }
 
 /* Герой */
 
 .hero {
-    background-color: var(--color-section-background);
+    max-width: 1600px;
+    background-color: var(--color-background-tertiary);
+    background-image: linear-gradient(rgba(47, 48, 58, 0.4), rgba(47, 48, 58, 0.4)), url(../images/hero-image.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     padding: 200px 0; 
-
 }
 .hero-title {
     width: 696px;
@@ -178,14 +191,10 @@ img {
     padding-bottom: 0;
 }
 .feature-card {
-   /* display: flex;
-   justify-content: center;
-   align-items: baseline;  */
-}
-.feature-icon {
+    height: 120px;
+    padding: 25px 100px;
     margin-bottom: 30px;
     background-color: var(--color-background-secondary);
-    background-size: contain;
     border-radius: 4px;
 }
 .feature-list {
@@ -254,7 +263,30 @@ height: 260px;
     text-align: center;
     letter-spacing: 0.03em;
     color: var(--color-secondary);
-    margin-bottom: 0;
+    margin-bottom: 16px;
+}
+.socials-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.social-item {
+    width: 44px;
+    height: 44px;    
+}
+.social-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    fill: var(--color-icon-primary);
+    border-radius: 50%;
+}
+.social-link:hover {
+    fill: var(--color-text-action);
+    background-color: var(--color-action);
 }
 
 /* Наші клієнти */
@@ -263,8 +295,25 @@ height: 260px;
     display: flex;
     justify-content: center;
     align-items: center;
-}
+    gap: 30px;
 
+}
+.client-card {
+    width: 170px;
+    height: 92px;
+    padding: 16px 32px;    
+    border: 1px solid var(--color-icon-primary);
+    border-radius: 4px;
+}
+.client-icon {
+    fill: var(--color-icon-primary);
+}
+.client-card:hover, .client-card:focus {
+    border: 1px solid var(--color-action);
+    }
+.client-icon:hover, .client-icon:focus {
+    fill: var(--color-action);
+}
 /* Портфоліо */
 
 .project-button-list {
@@ -300,6 +349,9 @@ height: 260px;
     margin-left: var(--project-card-gap);
     margin-top: var(--project-card-gap);
 }
+.project-card:hover, .project-card:focus {
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
+}
 .card-title {
     padding: 20px 24px;
 }
@@ -323,8 +375,11 @@ height: 260px;
     background-color: var(--color-section-background);
     padding: 60px 0;
 }
+.footer-container {
+    display: flex;
+    gap: 70px;
+}
 .link-logo-footer {
-    font-weight: 700;
     font-family: 'Raleway';
     font-size: 26px;
     line-height: 1.2;
@@ -351,4 +406,32 @@ height: 260px;
     }
 .mailto:hover, .mailto:focus {
     color: var(--color-action);
+}
+.join {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+}
+.join-title {
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--color-text-action);
+    margin: 0 90px 20px 0;
+}
+.join-social-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    fill: var(--color-text-action);
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+.join-social-link:hover {
+    fill: var(--color-text-action);
+    background-color: var(--color-action);
 }
